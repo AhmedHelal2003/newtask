@@ -1,0 +1,130 @@
+/* Global Variables */
+:root {
+  --primary-color: #4caf50;
+  --secondary-color: #f4f4f4;
+  --accent-color: #ff5722;
+  --text-color-light: #ffffff;
+  --text-color-dark: #333333;
+  --background-light: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #8fd3f4);
+  --background-dark: linear-gradient(-45deg, #232526, #414345);
+}
+
+[data-theme="light"] {
+  --background-color: var(--background-light);
+  --text-color: var(--text-color-dark);
+}
+
+[data-theme="dark"] {
+  --background-color: var(--background-dark);
+  --text-color: var(--text-color-light);
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary-color);
+  padding: 10px 20px;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--text-color-light);
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: var(--accent-color);
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none; /* الخلفية أصبحت متأثرة بالـ body */
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+#theme-toggle {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: var(--text-color-light);
+  background-color: #212121;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+#theme-toggle:hover {
+  background-color: var(--primary-color);
+}
+
+#theme-icon {
+  margin-right: 10px;
+  transition: transform 0.3s;
+}
+
+#theme-toggle:active #theme-icon {
+  transform: rotate(180deg);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+}
+
+/* Animations */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  #theme-toggle {
+    padding: 10px 20px;
+  }
+}
